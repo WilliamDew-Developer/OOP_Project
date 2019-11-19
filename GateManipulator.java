@@ -27,8 +27,6 @@ public class GateManipulator {
 	Gates a23 = new Gates("ERW", "C10", (Integer) null, 23);
 	Gates a24 = new Gates("DFW", "B8", (Integer) null, 24);
 	Gates a25 = new Gates("ATL", "C4", (Integer) null, 25);
-
-
 	
 	public void addingGates() {
 		gateList.add(a1);
@@ -130,5 +128,112 @@ public class GateManipulator {
 			a10.setExpectedPlaneID(eID);
 			gateList.set(index, a10);
 		}
+		if (eID == 11) {
+			a11.setAirportID(aID);
+			a11.setGateID(gID);
+			a11.setPlaneID(pID);
+			a11.setExpectedPlaneID(eID);
+			gateList.set(index, a11);
+		}
+		if (eID == 12) {
+			a12.setAirportID(aID);
+			a12.setGateID(gID);
+			a12.setPlaneID(pID);
+			a12.setExpectedPlaneID(eID);
+			gateList.set(index, a12);
+		}
+		if (eID == 13) {
+			a13.setAirportID(aID);
+			a13.setGateID(gID);
+			a13.setPlaneID(pID);
+			a13.setExpectedPlaneID(eID);
+			gateList.set(index, a13);
+		}
+		if (eID == 14) {
+			a14.setAirportID(aID);
+			a14.setGateID(gID);
+			a14.setPlaneID(pID);
+			a14.setExpectedPlaneID(eID);
+			gateList.set(index, a14);
+		}
+		if (eID == 15) {
+			a15.setAirportID(aID);
+			a15.setGateID(gID);
+			a15.setPlaneID(pID);
+			a15.setExpectedPlaneID(eID);
+			gateList.set(index, a15);
+		}
+		if (eID == 16) {
+			a16.setAirportID(aID);
+			a16.setGateID(gID);
+			a16.setPlaneID(pID);
+			a16.setExpectedPlaneID(eID);
+			gateList.set(index, a16);
+		}
+		if (eID == 17) {
+			a17.setAirportID(aID);
+			a17.setGateID(gID);
+			a17.setPlaneID(pID);
+			a17.setExpectedPlaneID(eID);
+			gateList.set(index, a17);
+		}
+		if (eID == 18) {
+			a18.setAirportID(aID);
+			a18.setGateID(gID);
+			a18.setPlaneID(pID);
+			a18.setExpectedPlaneID(eID);
+			gateList.set(index, a18);
+		}
+		if (eID == 19) {
+			a19.setAirportID(aID);
+			a19.setGateID(gID);
+			a19.setPlaneID(pID);
+			a19.setExpectedPlaneID(eID);
+			gateList.set(index, a19);
+		}
+		if (eID == 20) {
+			a20.setAirportID(aID);
+			a20.setGateID(gID);
+			a20.setPlaneID(pID);
+			a20.setExpectedPlaneID(eID);
+			gateList.set(index, a20);
+		}
+		if (eID == 21) {
+			a21.setAirportID(aID);
+			a21.setGateID(gID);
+			a21.setPlaneID(pID);
+			a21.setExpectedPlaneID(eID);
+			gateList.set(index, a21);
+		}
+		if (eID == 22) {
+			a22.setAirportID(aID);
+			a22.setGateID(gID);
+			a22.setPlaneID(pID);
+			a22.setExpectedPlaneID(eID);
+			gateList.set(index, a22);
+		}
+		if (eID == 23) {
+			a23.setAirportID(aID);
+			a23.setGateID(gID);
+			a23.setPlaneID(pID);
+			a23.setExpectedPlaneID(eID);
+			gateList.set(index, a23);
+		}
+		if (eID == 24) {
+			a24.setAirportID(aID);
+			a24.setGateID(gID);
+			a24.setPlaneID(pID);
+			a24.setExpectedPlaneID(eID);
+			gateList.set(index, a24);
+		}
+		if (eID == 25) {
+			a25.setAirportID(aID);
+			a25.setGateID(gID);
+			a25.setPlaneID(pID);
+			a25.setExpectedPlaneID(eID);
+			gateList.set(index, a25);
+		}
 	}
+
+	// Implement Chaos
 }
