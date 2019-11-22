@@ -37,4 +37,11 @@ public class RunwayManipulator {
 			runwayList.set(index, r4);
 		}
 	}
+	
+	public void chaos() {
+		updatingRunways("R1", 8);
+		updatingRunways("R2", 1);
+		updatingRunways("R3", 23);
+		updatingRunways("R4", 16);
+	}
 }
