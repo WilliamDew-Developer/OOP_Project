@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class GetCurrentWeather {
 
-	public static void getWeather(Singleton.Weather weather12, Singleton.Season season) {
+	public static String getWeather(Singleton.Weather weather12, Singleton.Season season) {
 		
 		//String variable that will be sent to PreFlightStatus function 
 		String conditionA;
@@ -24,6 +24,7 @@ public class GetCurrentWeather {
 				int resultW1 = randomGenerator.nextInt(highW1 - lowW1) + lowW1;
 				System.out.println(resultW1 + " degrees");
 				System.out.println("Weather conditions are clear");
+				return "clear";
 
 				break;
 			case SEVERE_WEATHER:
@@ -33,6 +34,7 @@ public class GetCurrentWeather {
 				int resultW = randomGenerator1.nextInt(highW - lowW) + lowW;
 				System.out.println(resultW + " degrees");
 				System.out.println("Warning weather conditions are severe. Blizzard approaching");
+				return "severe";
 				break;
 			}
 			break;
@@ -48,6 +50,7 @@ public class GetCurrentWeather {
 				int resultSp = randomGeneratorSP.nextInt(highSp - lowSp) + lowSp;
 				System.out.println(resultSp + " degrees");
 				System.out.println("Weather conditions are clear");
+				return "clear";
 				break;
 			case SEVERE_WEATHER:
 				Random randomGeneratorS = new Random();
@@ -56,6 +59,7 @@ public class GetCurrentWeather {
 				int resultS = randomGeneratorS.nextInt(highS - lowS) + lowS;
 				System.out.println(resultS + " degrees");
 				System.out.println("Weather is too severe for takeoff. Hurricane approaching");
+				return "severe";
 				break;
 			}
 			break;
@@ -71,6 +75,7 @@ public class GetCurrentWeather {
 				int resultSu = randomGeneratorSu.nextInt(highSu - lowSu) + lowSu;
 				System.out.println(resultSu + " degrees");
 				System.out.println("Weather is clear for takeoff");
+				return "clear";
 				break;
 			case SEVERE_WEATHER:
 				Random randomGeneratorSum = new Random();
@@ -79,6 +84,7 @@ public class GetCurrentWeather {
 				int resultSum = randomGeneratorSum.nextInt(highSum - lowSum) + lowSum;
 				System.out.println(resultSum + " degrees");
 				System.out.println("Weather is too severe for takeoff. Tornado approaching");
+				return "severe";
 				break;
 			}
 			break;
@@ -94,6 +100,7 @@ public class GetCurrentWeather {
 				int resultFa = randomGeneratorFa.nextInt(highFa - lowFa) + lowFa;
 				System.out.println(resultFa + " degrees");
 				System.out.println("Weather is clear for takeoff");
+				return "clear";
 				break;
 			case SEVERE_WEATHER:
 				Random randomGeneratorFall = new Random();
@@ -102,6 +109,7 @@ public class GetCurrentWeather {
 				int resultFall = randomGeneratorFall.nextInt(highFall - lowFall) + lowFall;
 				System.out.println(resultFall + " degrees");
 				System.out.println("Weather is too severe for takeoff. Hurricane approaching");
+				return "severe";
 				break;
 			}
 			break;

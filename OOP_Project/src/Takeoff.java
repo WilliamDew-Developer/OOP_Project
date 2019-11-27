@@ -1,8 +1,7 @@
 
 public class Takeoff {
 	
-	static String weather = "weather_condition";//Weather.getWeather();
-	
+	static String weather = GetCurrentWeather.getWeather;	
 	public static void takeoff(FlightList flightList) {
 		String destination;//used as temporary variable to send off planes
 		Flight flight;//used as temporary variable for send method
@@ -15,7 +14,7 @@ public class Takeoff {
 	}
 	
 	public void send(Flight flight, String destination) {
-		System.out.println("Flight " + flight + " has departed for " + destination);
+		System.out.println("Flight " + flight.getFlightId + " has departed for " + destination);
 		
 		//remove flight object from array
 		
