@@ -1,8 +1,8 @@
 package scheduler;
 
 
-/*
- * Marc
+/**
+ * @author Marc
  * 
  * This class creates the object instance of the flight class which will be used to
  * populate the runways and gates
@@ -118,7 +118,7 @@ public class Flight {
     }
     
     /**
-     * gets exected gateId
+     * gets expected gateId
      * 
      * @return expGateId
      */

@@ -5,6 +5,14 @@ public class Gates {
 	private int expectedPlaneID;
 	private int gateID;
 	
+	/**
+	 * constructor for gate object
+	 * 
+	 * @param gName
+	 * @param pID
+	 * @param eID
+	 * @param gID
+	 */
 	Gates(String gName, int pID, int eID, int gID) {
 		this.gateName = gName;
 		this.planeID = pID;
@@ -12,14 +20,29 @@ public class Gates {
 		this.gateID = gID;
 	}
 
+	/**
+	 * sets id of gate object
+	 * 
+	 * @param gateID
+	 */
 	public void setGateID(int gateID) {
 		this.gateID = gateID;
 	}
 	
+	/**
+	 * returns gate id
+	 * 
+	 * @return gateID
+	 */
 	public int getGateID() {
 		return gateID;
 	}
 	
+	/**
+	 * return name of gate
+	 * 
+	 * @return gateName
+ 	 */
 	public String getGateName() {
 		return gateName;
 	}

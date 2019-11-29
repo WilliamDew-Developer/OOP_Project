@@ -28,6 +28,16 @@ public class GateManipulator {
 	Gates a24 = new Gates("B8", -1, 24, 24);
 	Gates a25 = new Gates("C4", -1, 25, 25);
 	
+	/**
+	 * constructor for gates manipulator that instantiates all gates
+	 */
+	public GateManipulator() {
+		addingGates();
+	}
+	
+	/**
+	 * adds gates into gateList
+	 */
 	public void addingGates() {
 		gateList.add(a1);
 		gateList.add(a2);

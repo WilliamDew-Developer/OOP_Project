@@ -19,6 +19,7 @@ public class Takeoff {
 		pt = PersistentTime.getInstance();
 		int currentTime = pt.getTime();
 		
+		
 		String destination;//used as temporary variable to send off planes
 		Flight flight;//used as temporary variable for send method
 		if(weather.equalsIgnoreCase("clear"))
@@ -29,13 +30,21 @@ public class Takeoff {
 			}
 	}
 	
+	//Check quarter
+	//Check weather
+	//Check which gates are filled
+	//Return the correct list
 	public List<Flight> checkQuarter(int currentTime) {
 		if(currentTime == 1) {
 			
-		}else if(){
+		}else if(currentTime == 2){
 			
 		}else if() {
 			
 		}
+	}
+	
+	public List<Flight> checkFilledGates(){
+		
 	}
 }

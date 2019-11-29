@@ -114,37 +114,37 @@ public class TakeoffFrame {
 	
 	
 //	//Instantiates a list of radio buttons pulling from the Takeoff class to get specific instances of flight as tickable boxes
-//	public void initRadioButtons() {
-//		//these will collect the prerequisites from the takeoff class including the weather conditions and the estimated time or arrival
-//		//
-////		FlightIterator fi = new FlightIterator(); //need to install class
-////		List<Flight> flist = new ArrayList<>();  //need to install class
-//
+	public void initRadioButtons() {
+		//these will collect the prerequisites from the takeoff class including the weather conditions and the estimated time or arrival
+		//
+//		FlightIterator fi = new FlightIterator(); //need to install class
+//		List<Flight> flist = new ArrayList<>();  //need to install class
+
+		
+		List<JRadioButton> list = new ArrayList<>();
+		ButtonGroup bg = new ButtonGroup();
+		
+		//needs flight class and iterator to work
+//		for(FlightIterator fi: flights) {
+//			JRadioButton jrb = new JRadioButton("" + flights.name());
+//			list.add(jrb);
+//			bg.add(jrb);
+//			flightListPanel.add(jrb);
+//		}
 //		
-//		List<JRadioButton> list = new ArrayList<>();
-//		ButtonGroup bg = new ButtonGroup();
-//		
-//		//needs flight class and iterator to work
-////		for(FlightIterator fi: flights) {
-////			JRadioButton jrb = new JRadioButton("" + flights.name());
-////			list.add(jrb);
-////			bg.add(jrb);
-////			flightListPanel.add(jrb);
-////		}
-////		
-//		
-//		//working when provided with input, but has no flight input
-//		btnExecuteTakeoff.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				String flightNames = "";
-//				
-//				for (JRadioButton jrb : list) {
-//                    if (jrb.isSelected()) {
-//                    	flightNames += jrb.getText();
-//                        JOptionPane.showMessageDialog(frame, flightNames + " has taken off");
-//                    }
-//                }
-//			}
-//		});
-//	}
+		
+		//working when provided with input, but has no flight input
+		btnExecuteTakeoff.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String flightNames = "";
+				
+				for (JRadioButton jrb : list) {
+                    if (jrb.isSelected()) {
+                    	flightNames += jrb.getText();
+                        JOptionPane.showMessageDialog(frame, flightNames + " has taken off");
+                    }
+                }
+			}
+		});
+	}
 }
