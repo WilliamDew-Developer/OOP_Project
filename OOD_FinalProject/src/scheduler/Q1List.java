@@ -58,7 +58,12 @@ public class Q1List implements QuarterComposite {
 
 	@Override
 	public List<Flight> getList() {
-		// TODO Auto-generated method stub
+		
+		//TESTING
+		if (q1Flights.isEmpty()) {
+			System.out.println("q1Flights is empty");
+		}
+		
 		return q1Flights;
 	}
 

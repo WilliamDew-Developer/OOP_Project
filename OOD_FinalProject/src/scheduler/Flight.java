@@ -17,7 +17,7 @@ public class Flight {
     private String sourceAp; /*the source airport of the flight*/
     private String destAp; /*the destination of the flight*/
     private String expGateId; /*the gate that is expected to hold the plane once it arrives*/
-    private String gateId; /*the gate that is currently occupied by this flight*/
+    private int gateId; /*the gate that is currently occupied by this flight*/
     private int ToD; /*time of departure*/
     private int ToA; /*time of arrival*/
     
@@ -34,7 +34,7 @@ public class Flight {
      * @param ToD
      * @param ToA
      */
-    public Flight(int flightId, String flightDate, String sourceAp, String destAp, String expGateId, String gateId, int ToD, int ToA){
+    public Flight(int flightId, String flightDate, String sourceAp, String destAp, String expGateId, int gateId, int ToD, int ToA){
         this.flightId = flightId;
         this.flightDate = flightDate;
         this.sourceAp = sourceAp;
@@ -135,7 +135,7 @@ public class Flight {
         this.expGateId = expGateId;
     }
 
-    public String getGateId() {
+    public int getGateId() {
         return this.gateId;
     }
 
@@ -144,7 +144,7 @@ public class Flight {
      * 
      * @param gateId
      */
-    public void setGateId(String gateId) {
+    public void setGateId(int gateId) {
         this.gateId = gateId;
     }
 
@@ -183,6 +183,16 @@ public class Flight {
     public void setToA(int ToA) {
         this.ToA = ToA;
     }
+    
+	/**
+	 * check if flight is currently occupying a gate
+	 * 
+	 * @param flight
+	 * @return true if occupying gate
+	 */
+	public boolean isInGate(){
+		return (getGateId() != -1) ? true : false;
+	}
 
     /**
      * prints flight info to console

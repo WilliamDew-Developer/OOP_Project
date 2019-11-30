@@ -16,12 +16,18 @@ import javax.swing.JPasswordField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.WindowConstants;
 
+import gates.GateManipulator;
+import gates.RunwayManipulator;
+import scheduler.Loader;
+import scheduler.PersistentTime;
+
 import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class PTapplicationGUI {
 
+	//declare ui elements
 	private JFrame frmPlaneAndTrain;
 	private JPanel panel;
 	private JTextField textField;
@@ -37,11 +43,27 @@ public class PTapplicationGUI {
 	private JButton button_4;
 	private JButton button_5;
 	private JButton button_6;
+	
+	//declare manipulator
+	private static GateManipulator gm;
+	private static RunwayManipulator rm;
+	private static Loader ld;
+	private static PersistentTime pt;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		pt = PersistentTime.getInstance();
+		gm = new GateManipulator();
+		rm = new RunwayManipulator();
+		ld = new Loader();
+		
+		//load assets
+		gm.addingGates();
+		rm.addingRunways();
+		ld.loadFlights();
+		
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -70,6 +92,9 @@ public class PTapplicationGUI {
 		createEvents();
 	}
 
+	/**
+	 * initialize components
+	 */
 	private void initComponents() {
 		frmPlaneAndTrain = new JFrame();
 		frmPlaneAndTrain.setTitle("Plane and Train Controller");
@@ -277,6 +302,9 @@ public class PTapplicationGUI {
 		actionPanel.setLayout(gl_actionPanel);
 	}
 
+	/**
+	 * create button responses
+	 */
 	private void createEvents() {
 		CardLayout c = (CardLayout) panel_1.getLayout();
 		

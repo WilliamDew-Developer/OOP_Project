@@ -1,42 +1,53 @@
 package scheduler;
 
+import java.util.Iterator;
+import java.util.List;
+
+import gates.Gates;
+import gates.GateManipulator;
+
 /**
  * 
  * @author Marc and David
  * 
- * This class controls the loading of flights to test the contoller system
- * This functionality mimics a databse containing flights that would be avaliable to the program
+ * This class controls the loading of flights to test the controller system
+ * This functionality mimics a database containing flights that would be available to the program
  * 
  * Flights with a time of arrival of '-1' indicate that they currently in the airport and are departing
  * Flights with a time of departure of '-1' indicate that they are not currently at the airport
  *
  */
 public class Loader {
+	private QuarterComposite q1001 = new Q1List("Quarter 1");
+	private QuarterComposite q2001 = new Q2List("Quarter 2");
+	private QuarterComposite q3001 = new Q3List("Quarter 3"); 
+	private QuarterComposite q4001 = new Q4List("Quarter 4");
+	private GateManipulator gm = new GateManipulator();
 	
 	public void loadFlights() {
-        Flight flight1 = new Flight(1, "2019-01-01", "ATL", "ADQ", "C3", "", 10, -1);
-        flight1.setGateId(null);
-        Flight flight2 = new Flight(2, "2019-01-01", "ATL", "PWN", "B10", "", 21, -1);
-        flight2.setGateId(null);
-        Flight flight3 = new Flight(3, "2019-01-01", "ATL", "PWN", "A7", "", 56, -1);
-        flight3.setGateId(null);
-        Flight flight4 = new Flight(4, "2019-01-01", "MLB", "ATL", "A8", "", -1, 87);
-        flight4.setGateId(null);
-        Flight flight5 = new Flight(5, "2019-01-01", "BNA", "ATL", "T3", "", -1, 32);
-        flight5.setGateId(null);
-        Flight flight6 = new Flight(6, "2019-01-01", "SFB", "ATL", "B13", "", -1, 42);
-        flight6.setGateId(null);
-        Flight flight7 = new Flight(7, "2019-01-01", "ATL", "IWA", "A13", "", 74, -1);
-        flight7.setGateId(null);
-        Flight flight8 = new Flight(8, "2019-01-01", "ATL", "FAT", "C11", "", -1, 64);
-        flight8.setGateId(null);
-        Flight flight9 = new Flight(9, "2019-01-01", "TPA", "ATL", "A1", "", -1, -61);
-        flight9.setGateId(null);
-        Flight flight10 = new Flight(10, "2019-01-01", "ATL", "OKC", "C8", "", 91, -1);
-        flight10.setGateId(null);
+		
+		//Last two variables in constructor ToD and ToA respectively
+		//-1 values in ToD indicate that they are not in the airport
+		//-1 values in ToA indicate that they are currently in the airport
+		
+		//Departing Flights
+		Flight flight1 = new Flight(1, "2019-01-01", "ATL", "ADQ", "C3", -1, 10, -1);//departing
+    	Flight flight2 = new Flight(2, "2019-01-01", "ATL", "PWN", "B10", -1, 21, -1);//departing
+    	Flight flight3 = new Flight(3, "2019-01-01", "ATL", "PWN", "A7", -1, 56, -1);//departing
+        Flight flight7 = new Flight(7, "2019-01-01", "ATL", "IWA", "A13", -1, 74, -1);//departing
+    	Flight flight10 = new Flight(10, "2019-01-01", "ATL", "OKC", "C8", -1, 91, -1);//departing
+ 		//end of departing flights	
+ 			
+		//Arriving Flights
+        Flight flight4 = new Flight(4, "2019-01-01", "MLB", "ATL", "A8", -1, -1, 87);//arriving
+        Flight flight5 = new Flight(5, "2019-01-01", "BNA", "ATL", "T3", -1, -1, 32);//arriving
+        Flight flight6 = new Flight(6, "2019-01-01", "SFB", "ATL", "B13", -1, -1, 42);//arriving
+        Flight flight8 = new Flight(8, "2019-01-01", "ATL", "FAT", "C11", -1, -1, 64);//arriving
+        Flight flight9 = new Flight(9, "2019-01-01", "TPA", "ATL", "A1", -1, -1, 61);//arriving
+        //end of arriving flights
         
         
-        
+        //Add flights to list
         FlightList list001 = new FlightList();
         list001.addToList(flight1);
         list001.addToList(flight2);
@@ -50,72 +61,89 @@ public class Loader {
         list001.addToList(flight10);
         list001.printFlightList();
         
+        //adds flights to their respective gates
         for(int i = 0; i < list001.getSize(); i++) {
-        	if(list001.getFlight(i).getToA() == -1) {        		
-        		//update gate information here 
+        	if(list001.getFlight(i).getToA() == -1) { //if plane is departing    		
+        		gm.updatePID(list001.getFlight(i).getFlightId(), findGateIndex(list001.getFlight(i).getExpGateId()));
+        		list001.getFlight(i).setGateId(findGateIndex(list001.getFlight(i).getExpGateId()));
         	}
         }
 
-        QuarterComposite q1001 = new Q1List("Quarter 1");
         q1001.addToQuarter(list001);
         q1001.printQuarterList();
         
-        /*for (int i = 0; i < q1001.getSize(); i++){
-            if(){
-                //send to a gate
-                
-            }
-            else {
-                //prep for takeoff
-            }   
-        }*/
-
-        QuarterComposite q2001 = new Q2List("Quarter 2 Listings");
         q2001.addToQuarter(list001);
         q2001.printQuarterList();
-        /*for (int i = 0; i < q2001.getSize(); i++){
-            if( ){
-                //send to a gate
-                
-            }
-            else {
-                //prep for takeoff
-            }   
-        }*/
 
-        QuarterComposite q3001 = new Q3List("Quarter 3 Listings");
         q3001.addToQuarter(list001);
         q3001.printQuarterList();
 
-        QuarterComposite q4001 = new Q4List("Quarter 4 Listings");
         q4001.addToQuarter(list001);
         q4001.printQuarterList();
         
-        //can we make the time the flights are landing real time?
-
-        //here we send flights to there respected functions (gate assignments or to prep for takeoff)
-        
-        
-
-        
-        
-        
-
-        
+		//TESTING
+		System.out.println("Inside Loader.loadFlights(), all flights loaded into quarters");
     }
+	
+	/**
+	 * returns list of flights in Quarter1
+	 * 
+	 * @return Quarter 1 Flight List
+	 */
+	public List<Flight> getQuarter1(){
+		return q1001.getList();
+	}
+	
+	/**
+	 * returns list of flights in Quarter2
+	 * 
+	 * @return Quarter 2 Flight List
+	 */
+	public List<Flight> getQuarter2(){
+		return q2001.getList();
+	}
+	
+	/**
+	 * returns list of flights in Quarter3
+	 * 
+	 * @return Quarter 3 Flight List
+	 */
+	public List<Flight> getQuarter3(){
+		return q3001.getList();
+	}
+	
+	/**
+	 * returns list of flights in Quarter4
+	 * 
+	 * @return Quarter 4 Flight List
+	 */
+	public List<Flight> getQuarter4(){
+		return q4001.getList();
+	}
+	
+	/**
+	 * finds the gate ID using the name of the gate
+	 * 
+	 * @param gateName
+	 * @return gateID
+	 */
+	public int findGateIndex(String gateName) {
+		//TESTING
+		System.out.println("Inside Loader.findGateIndex()");
+		
+		
+		Iterator gateIter = gm.createIterator();
+		int gateId = -1; //cannot find
+		
+		while(gateIter.hasNext()) {
+			Gates gate = (Gates) gateIter.next(); /* create gate object over iterator list */
+			
+			//check if gate names are the same and return that gate Id
+			if(gateName.equalsIgnoreCase(gate.getGateName())) {
+				gateId = gate.getGateID();
+			}//end of if
+		}
+		
+		return gateId;
+	}
 }
-
-/*(2, '2019-01-01', 'ATL', 'ONT', 2, ‘B10’, NULL, 21, NULL), 
-(3, '2019-01-04', 'ATL', 'PWM', 3, ‘A7’, NULL, 56, NULL),
-(4, '2019-01-05', 'MLB', 'ATL', 4, ‘A8’, NULL, NULL, 87),
-(5, '2019-01-01', 'BNA', 'ATL', 5, ‘T3’, NULL, NULL, 32), 
-(6, '2019-01-08', 'SFB', 'ATL', 6, ‘B13’, NULL, NULL, 42), 
-(7, '2019-01-10', 'ATL', 'IWA', 7, ‘A13’, NULL, 40, NULL),
-(8, '2019-01-11', 'ATL', 'FAT', 8, ‘C11’, NULL, 74, NULL),
-(9, '2019-01-18', 'TPA', 'ATL', 9, ‘A1’, NULL, NULL, 61), 
-(10, '2019-01-12', 'ATL', 'OKC', 10, ‘C8’, NULL, 91, NULL), 
-(11, '2019-01-15', 'ATL', 'HNL', 11, ‘B7’, NULL, 81, NULL), 
-(12, '2019-01-20', 'HNL', 'ATL', 12, ‘T6’, NULL, NULL, 44), 
-(13, '2019-01-22', 'DSM', 'ATL', 13, ‘A18’, NULL, NULL, 81),
-(14, '2019-01-27', 'SBA', 'ATL', 14,‘B3’, NULL, NULL, 99), 
-(15, '2019-02-01', 'EGE', 'ATL', 15,’C15’ , NULL, NULL, 28), */

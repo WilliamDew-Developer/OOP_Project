@@ -1,7 +1,11 @@
 package scheduler;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import gates.GateManipulator;
+import gates.Gates;
 
 /**
  * @author Marc
@@ -10,6 +14,8 @@ import java.util.List;
  */
 
 public class FlightList {
+	private FlightList fl;
+	private GateManipulator gm = new GateManipulator();
     private List<Flight> flightList;
     private int size = 0;
    
@@ -81,7 +87,57 @@ public class FlightList {
     public Flight getFlight(int index){
         return flightList.get(index);
     }
+    
+    /**
+     * returns flight at a particular gate Id
+     * 
+     * @param gateId
+     * @return Flight
+     */
+    public Flight getFlightAtGate(int gateId) throws NullPointerException{
+    	Flight flightAtGate = null;
+    	
+    	for(Flight flight : flightList) {
+    		if(flight.getGateId() == gateId) {
+    			flightAtGate = flight;
+    			break;
+    		}
+    	}
+    	
+    	return flightAtGate;
+    }
+    
+    /**
+     * returns FlightList
+     * 
+     * @return List<Flight>
+     */
+    public List<Flight> getFlightList(){
+    	return flightList;
+    }
 
+    /**
+     * 
+     * @param gateList 
+     * @return
+     */
+    public FlightList convertGateListToFlights(Iterator gateList) {
+    	gateList = gm.createIterator();
+    	Flight flight;
+    	
+    	while(gateList.hasNext()) {
+    		Gates gate = (Gates) gateList.next();
+    		flight = getFlightAtGate(gate.getGateID()); //get flight at gateId
+    		flightList.add(flight);
+    	}
+    	
+    	return fl;
+    }
+    
+    public Iterator createIterator() {
+    	return flightList.iterator();
+    }
+    
     
     /**
      * returns the Time of Arrival of a Flight object at the specified index
