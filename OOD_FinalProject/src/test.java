@@ -13,10 +13,10 @@ import takeoffandlanding.Takeoff;
 
 public class test {
 	public static void main(String[] args) {
-		Loader l = new Loader();
-		l.loadFlights();
+		Loader loader = new Loader();
+		loader.loadFlights();
 		Takeoff to = new Takeoff();
-		List<Flight> f = l.getQuarter1();
+		List<Flight> f = loader.getQuarter1();
 		
 		//TESTING
 		if(f.isEmpty()) {
@@ -31,8 +31,8 @@ public class test {
 //		}
 		
 		PersistentTime pt = PersistentTime.getInstance();
-		FlightList fl = to.takeoff();
-		f = to.getQuarterList(1);
+		FlightList fl = to.takeoff(loader);
+		f = to.getQuarterList(1, loader);
 		
 		if(f.isEmpty()) {
 			System.out.println("load did not work");

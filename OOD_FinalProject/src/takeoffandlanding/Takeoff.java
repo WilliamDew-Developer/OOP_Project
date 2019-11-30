@@ -25,7 +25,6 @@ import scheduler.PersistentTime;
  */
 public class Takeoff {
 	private GateManipulator gm = new GateManipulator();
-	private Loader ld = new Loader();
 	private PersistentTime pt;
 	private List<Flight> eligibleFlights;
 	private FlightList fl;
@@ -40,7 +39,7 @@ public class Takeoff {
 	 * 
 	 * @param flightList
 	 */
-	public FlightList takeoff() {
+	public FlightList takeoff(Loader loader) {
 		//NOT WORKING
 		pt = PersistentTime.getInstance();
 		
@@ -48,7 +47,7 @@ public class Takeoff {
 		currentTime = pt.getTime();
 		
 		//get list of eligible flights and check which ones are in gates
-		eligibleFlights = getQuarterList(currentTime);
+		eligibleFlights = getQuarterList(currentTime, loader);
 		
 		//TESTING
 		if(eligibleFlights.isEmpty()) {			
@@ -79,7 +78,7 @@ public class Takeoff {
 	 * @param currentTime
 	 * @return list of flights in current Quarter
 	 */
-	public List<Flight> getQuarterList(int currentTime){
+	public List<Flight> getQuarterList(int currentTime, Loader ld){
 		//TESTING
 		System.out.println("Inside Takeoff.getQuarterList()");
 		
