@@ -9,7 +9,7 @@ public class Singleton {
 	enum Season {
 		WINTER, SPRING, SUMMER, FALL
 	}
-
+	
 	// Enum for 2 weather conditions
 	enum Weather {
 		CLEAR, SEVERE_WEATHER

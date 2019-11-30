@@ -12,7 +12,6 @@ public class GetCurrentWeather {
 		} else {
 
 			status = "Severe";
-
 		}
 
 		return status;
