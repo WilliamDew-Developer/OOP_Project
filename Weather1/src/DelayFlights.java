@@ -8,7 +8,6 @@ public class DelayFlights {
 			System.out.println("True");
 		} else {
 			System.out.println("All flights grounded");
-			
 		}
 	}
 

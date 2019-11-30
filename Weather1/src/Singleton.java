@@ -13,7 +13,6 @@ public class Singleton {
 	// Enum for 2 weather conditions
 	enum Weather {
 		CLEAR, SEVERE_WEATHER
-		
 	}
 
 	// Class to randomly choose a value

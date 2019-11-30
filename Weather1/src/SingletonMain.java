@@ -5,7 +5,6 @@ public class SingletonMain {
 
 		CheckWeather.getCheckWeather();
 		
-
 	}
 
 }
